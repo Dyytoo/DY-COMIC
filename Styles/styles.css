@@ -46,7 +46,7 @@ a{
 /* ======== CSS CLASSES ============ */
 
 .container{
-    max-width: 1920px;
+    max-width: 1118px;
     margin-inline: 1.5rem;
 }
 
@@ -132,7 +132,7 @@ a{
 
 .nav__link{
     color: #fff;
-    background-color: var(--color1-hover);
+    background-color: var(--color1);
     font-weight: var(--font-reguler);
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -172,10 +172,77 @@ a{
     font-size: 1.25rem;
     font-weight: initial;
     transform: transition .4s;
+    transition: .4s ease-in-out;
 }
 .dropdown__link{
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     color: #fff;
-    background-color: var(--color1-hover);
+    background-color: var(--color1);
     display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    font-weight: var(--font-reguler);
+    transition: background-color .3s;
+}
+.dropdown__link i{
+    font-size: 1.25rem;
+    font-weight: initial;
+}
+.dropdown__link:hover{
+    background-color: var(--color2); 
+}
+.dropdown__menu{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease-out;
+}
+
+/* ======= SHOW DROPDOWN MENU ============= */
+.dropdown__item:hover .dropdown__menu{
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+/* ======= ROTATE DROPDOWN ICON */
+.dropdown__item:hover .dropdown__arrow{
+    transform: rotate(180deg);
+}
+
+/* ========== BREAKPOINTS ========== */
+/* For Small Device */
+@media screen and (max-width : 340px){
+    .container{
+        margin-inline: 1rem;
+    }
+    .nav__link{
+        padding-inline: 1rem;
+    }
+}
+
+/* For Large Device */
+@media screen and (min-width : 1118px){
+    .container{
+        margin-inline: auto;
+    }
+    .nav{
+        height: calc(var(--header-size) + 2rem);
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav__toggle{
+        display: none;
+    }
+    .nav__list{
+        height: 100%;
+        display: flex;
+        column-gap: 3rem;
+    }
+    .nav__link{
+        height: 100%;
+        padding: 0;
+        justify-content: initial;
+    }
+    .nav__link:hover{
+        background-color: transparent;
+    }
 }
